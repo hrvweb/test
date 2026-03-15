@@ -131,7 +131,7 @@ fi
       nohup qemu-system-x86_64 \
   -enable-kvm \
   -cpu host,+topoext,hv_relaxed,hv_spinlocks=0x1fff,hv-passthrough,+pae,+nx,kvm=on,+svm \
-  -smp 8,cores=16 \
+  -smp 8,cores=8 \
   -M q35,usb=on \
   -device usb-tablet \
   -m 28672 \
@@ -176,9 +176,9 @@ fi
       if grep -q "trycloudflare.com" /tmp/cloudflared.log; then
         URL=$(grep -o "https://[a-z0-9.-]*trycloudflare.com" /tmp/cloudflared.log | head -n1)
         echo "========================================="
-        echo " 🌍 Wind + noVNC ready:"
+        echo " 🌍 Windows 11 QEMU + noVNC ready:"
         echo "     $URL/vnc.html"
-        echo "     $URL/vnc.html" > /home/user/test/noVNC-URL.txt
+        echo "     $URL/vnc.html" > /home/user/idx-windows-gui/noVNC-URL.txt
         echo "========================================="
       else
         echo "❌ Cloudflared tunnel failed"
